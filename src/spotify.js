@@ -1,5 +1,6 @@
-const clientId = process.env.REACT_APP_CLIENT_ID || '4b13e50be57740cf9fdbb8272e72deea'
-const redirectURI = process.env.REACT_APP_REDIRECT_URL || 'https://spotify-clone-sa.netlify.app/'
+const clientId = '4b13e50be57740cf9fdbb8272e72deea'
+const redirectURI = 'https://spotify-clone-sa.netlify.app/'
+
 
 const scopes = [
     'user-read-playback-state',

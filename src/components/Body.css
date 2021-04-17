@@ -6,6 +6,11 @@
     padding: 30px;
     overflow-y: auto;
 }
+@media (max-width:500px) {
+    .body {
+        flex: 1;
+    }
+}
 
 .body::-webkit-scrollbar {
     display: none;
@@ -17,7 +22,7 @@
 
 .body__info {
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
     padding: 10px;
 }
 
@@ -25,6 +30,11 @@
     height: 20vw;
     margin: 0 20px;
     box-shadow: 0 4px 60px rgba(0,0,0,0.5);
+}
+@media (max-width:500px) {
+    .body__info > img {
+        height: 40vw;
+    }
 }
 
 .body__infoText {

@@ -4,10 +4,13 @@ import Header from './Header'
 import { useStateValue } from "../StateProvider";
 import { Favorite, MoreHoriz, PlayCircleFilled } from '@material-ui/icons';
 import SongRow from './SongRow';
+import { useMediaQuery } from '@material-ui/core';
 
 
 function Body({ spotify }) {
   const [{ discover_weekly }, dispatch] = useStateValue()
+  const isMobile = useMediaQuery('(max-width:500px)')
+
 
     return (
         <div className='body'>
@@ -17,9 +20,9 @@ function Body({ spotify }) {
                 <img src={discover_weekly?.images[0]?.url} alt=""/>
 
                 <div className="body__infoText">
-                    <strong>PLAYLIST</strong>
+                    {!isMobile && <strong>PLAYLIST</strong>}
 
-                    <h2>Discover Weekly</h2>
+                    {!isMobile && <h2>Discover Weekly</h2>}
                     <p>{discover_weekly?.description}</p>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import SidebarOption from './SidebarOption'
 import { Home, Search, LibraryMusic } from "@material-ui/icons";
 import { useStateValue } from "../StateProvider";
 
+
 function Sidebar() {
     const [{ playlists }, dispatch] = useStateValue()
 

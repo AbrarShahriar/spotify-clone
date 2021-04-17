@@ -2,8 +2,31 @@ import React from 'react'
 import './Footer.css'
 import { PlayCircleOutline, SkipPrevious, SkipNext, Shuffle, Repeat, PlaylistPlay, VolumeDown } from '@material-ui/icons'
 import { Grid, Slider } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/core';
+
 
 function Footer() {
+  const isMobile = useMediaQuery('(max-width:700px)')
+
+  const footerCenterWithContainer = (<div className="footer__center__container">
+  <div className="footer__center">
+      <Shuffle className="footer__green" />
+      <SkipPrevious className="footer__icon" />
+      <PlayCircleOutline fontSize='large' className="footer__icon" />
+      <SkipNext className="footer__icon" />
+      <Repeat className="footer__green" />
+  </div>
+  <Slider />
+</div>)
+
+    const footerCenter = (<div className="footer__center">
+    <Shuffle className="footer__green" />
+    <SkipPrevious className="footer__icon" />
+    <PlayCircleOutline fontSize='large' className="footer__icon" />
+    <SkipNext className="footer__icon" />
+    <Repeat className="footer__green" />
+</div>)
+
     return (
         <div className='footer'>
             <div className="footer__left">
@@ -15,15 +38,9 @@ function Footer() {
                 </div>
             </div>
 
-            <div className="footer__center">
-                <Shuffle className="footer__green" />
-                <SkipPrevious className="footer__icon" />
-                <PlayCircleOutline fontSize='large' className="footer__icon" />
-                <SkipNext className="footer__icon" />
-                <Repeat className="footer__green" />
-            </div>
+            {isMobile ? footerCenterWithContainer  : footerCenter}
 
-            <div className="footer__right">
+            {!isMobile && <div className="footer__right">
                 <Grid container spacing={2}>
                     <Grid item>
                         <PlaylistPlay />
@@ -35,7 +52,8 @@ function Footer() {
                         <Slider />
                     </Grid>
                 </Grid>
-            </div>
+            </div>}
+            
         </div>
     )
 }
